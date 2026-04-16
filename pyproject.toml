@@ -1,0 +1,22 @@
+
+```toml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-framework"
+version = "0.1.0"
+description = "A modular ML framework built from scratch"
+requires-python = ">=3.9"
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+    "jupyter"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
