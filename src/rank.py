@@ -3,8 +3,6 @@ import numpy as np
 
 def rank_data(x):
     x = np.asarray(x)
-
-    # get sorted order
     order = np.argsort(x)
     ranks = np.empty_like(order, dtype=float)
 
@@ -14,14 +12,11 @@ def rank_data(x):
     i = 0
     while i < n:
         j = i
-
-        # find range of equal values (ties)
         while j + 1 < n and sorted_x[j] == sorted_x[j + 1]:
             j += 1
 
-        # assign average rank for ties
         avg_rank = (i + j) / 2 + 1
-        ranks[order[i:j+1]] = avg_rank
+        ranks[order[i:j + 1]] = avg_rank
 
         i = j + 1
 

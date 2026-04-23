@@ -2,26 +2,25 @@ import numpy as np
 
 
 def mean(x):
-    x = np.asarray(x)
-    return np.sum(x) / x.size
+    x = np.asarray(x, dtype=float)
+    return np.mean(x)
 
 
 def variance(x):
-    x = np.asarray(x)
-    m = mean(x)
-    return np.sum((x - m) ** 2) / x.size
+    x = np.asarray(x, dtype=float)
+    return np.var(x)
 
 
 def standard_deviation(x):
-    return np.sqrt(variance(x))
+    x = np.asarray(x, dtype=float)
+    return np.std(x)
 
 
 def histogram(x, bins=10):
-    x = np.asarray(x)
-    counts, edges = np.histogram(x, bins=bins)
-    return counts, edges
+    x = np.asarray(x, dtype=float)
+    return np.histogram(x, bins=bins)
 
 
 def quantiles(x, q):
-    x = np.asarray(x)
+    x = np.asarray(x, dtype=float)
     return np.quantile(x, q)
