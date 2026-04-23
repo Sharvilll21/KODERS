@@ -2,6 +2,7 @@ README.md
 pyproject.toml
 src/__init__.py
 src/benchmarking.py
+src/io.py
 src/optim.py
 src/rank.py
 src/sort_search.py
