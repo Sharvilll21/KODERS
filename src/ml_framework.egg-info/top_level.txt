@@ -1,4 +1,10 @@
 __init__
+benchmarking
+metrics
 models
+optim
 pipeline
 preprocessing
+rank
+sort_search
+stats
