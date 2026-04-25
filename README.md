@@ -1,6 +1,6 @@
 # NumCompute – A Modular Scientific Computing Toolkit
 
-NumCompute is a small, from-scratch scientific computing and machine learning toolkit built using only Python and NumPy.  
+NumCompute is a small, from scratch scientific computing and machine learning toolkit built using only Python and NumPy.  
 The aim of the project is not just to “use” ML concepts, but to understand and implement them at a lower level—how data flows, how computations are structured, and how performance and numerical stability are handled in practice.
 
 Instead of relying on libraries like scikit-learn, this project rebuilds key ideas in a simplified, modular way so each component remains transparent and easy to reason about.
