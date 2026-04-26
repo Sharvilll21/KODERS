@@ -1,16 +1,24 @@
 import numpy as np
 
 
-def top_k(x, k):
+def topk(x, k, largest=True, return_indices=False):
     x = np.asarray(x)
 
     if not 1 <= k <= x.size:
         raise ValueError("k must be between 1 and array size")
 
-    indices = np.argpartition(x, -k)[-k:]
-    sorted_indices = indices[np.argsort(x[indices])[::-1]]
+    # get k smallest or largest elements using argpartition
+    if largest:
+        indices = np.argpartition(x, -k)[-k:]
+        indices = indices[np.argsort(x[indices])[::-1]]
+    else:
+        indices = np.argpartition(x, k)[:k]
+        indices = indices[np.argsort(x[indices])]
 
-    return x[sorted_indices]
+    if return_indices:
+        return x[indices], indices
+
+    return x[indices]
 
 
 def binary_search(x, target):
@@ -22,10 +30,16 @@ def binary_search(x, target):
         mid = (left + right) // 2
 
         if x[mid] == target:
-            return mid
-        if x[mid] < target:
+            return mid, True
+        elif x[mid] < target:
             left = mid + 1
         else:
             right = mid - 1
 
-    return -1
+    # returns insertion index + not found
+    return left, False
+
+
+def stable_sort(x):
+    x = np.asarray(x)
+    return np.sort(x, kind="stable")
